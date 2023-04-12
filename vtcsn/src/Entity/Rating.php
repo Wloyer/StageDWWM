@@ -18,14 +18,18 @@ class Rating
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $commentary = null;
 
+    #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private  $created_at ;
 
     #[ORM\ManyToOne(inversedBy: 'ratings')]
-    private ?driver $driver = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ride $raide = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ratings')]
-    private ?user $user = null;
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
-  
   
     public function getId(): ?int
     {
@@ -55,27 +59,26 @@ class Rating
         return $this;
     }
 
-
-    public function getDriver(): ?Driver
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->driver;
+        return $this->created_at;
     }
 
-    public function setDriver(?Driver $driver): self
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
-        $this->driver = $driver;
+        $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getRaide(): ?ride
     {
-        return $this->user;
+        return $this->raide;
     }
 
-    public function setUser(?User $user): self
+    public function setRaide(?ride $raide): self
     {
-        $this->user = $user;
+        $this->raide = $raide;
 
         return $this;
     }

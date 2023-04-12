@@ -30,7 +30,7 @@ class RegistrationFormType extends AbstractType
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'Nom'
+                'label'=>'Laste name'
             ])
             ->add('genre', ChoiceType::class,[
                 'attr'=>[
@@ -42,37 +42,37 @@ class RegistrationFormType extends AbstractType
                     'Homme'=>'H'
                 ],
 
-                'label'=>'Genre'
+                'label'=>'Gender'
         ])
             ->add('surname', TextType::class,[
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'Prénom'
+                'label'=>'Surname'
             ])
             ->add('phoneNumber', TextType::class,[
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'TEL'
+                'label'=>'phone number'
             ])
             ->add('address', TextType::class,[
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'Adresse'
+                'label'=>'Address'
             ])
             ->add('zipcode',  TextType::class,[
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'Code postal'
+                'label'=>'Zip code'
             ])
             ->add('city', TextType::class,[
                 'attr'=>[
                     'class'=>'form-control'
                 ],
-                'label'=>'Ville'
+                'label'=>'Town'
             ])
             ->add('RGBDConsent', CheckboxType::class, [
                 'mapped' => false,
@@ -81,7 +81,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-                'label'=>'En m\'inscrivant à ce site j\iaccepte les coditions détulisateur'
+                'label'=>'By registering I accept the terms of use'
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -103,7 +103,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                 
-                'label'=>'Mot de passe'
+                'label'=>'Password'
             ])
         ;
     }

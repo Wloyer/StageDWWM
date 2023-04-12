@@ -4,14 +4,14 @@
 {% endblock %}
 
 {% block body %}
-
-<div class="greyBar ">
-  <div class="container">
-    <div class="row">
+<main>
+<div class="greyBar content">
+  <div class="container ">
+    <div class="row ">
 
       <!-- Carousel -->
-      <div class="col-md-12 " >
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" >
+      <div class="col-md-12 carrouselCustom" >
+        <div id="carouselExampleControls" class="carousel slide content" data-bs-ride="carousel" >
           <div class="carousel-inner" >
             <div class="carousel-item active" >
               <img src="assets/images/vtcsn-Placholder2.avif" class="d-block w-100" alt="VTCSN">
@@ -230,42 +230,13 @@
 
 		<!-- Contact start -->
 		<section class="container" >
-			<div class="row text-center">
-					<h2 class="title titleContact">Contact Us</h2>
-				<div class="col-md-6 col-xs-12 pull-left">
-					<p >You have any questions or need additional information?
+				<div class=" text-center ">
+				<p >You have any questions or need additional information?
 						<br>
 						<span class="address">
 							<span class="highlight">Address:</span>
 							Car|Rental / 3861 Sepulveda Blvd. / Culver City, CA 90230</span>
 					</p>
-					<form action="#" method="post" id="contact-form" name="contact-form">
-						<input type="hidden" name="action" value="send_contact_form"/>
-						<div class="alert hidden" id="contact-form-msg"></div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<input type="text" class="form-control first-name text-field" name="first-name" placeholder="First Name:">
-									</div>
-									<div class="col-md-6">
-										<input type="text" class="form-control last-name text-field" name="last-name" placeholder="Last Name:">
-									</div>
-								</div>
-							</div>
-						<div class="form-group">
-							<input type="tel" class="form-control  text-field" name="telephone" placeholder="Telephone:">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control email text-field" name="email" placeholder="Email:">
-						</div>
-						<div class="form-group">
-							<textarea class="form-control message text-field " name="message" placeholder="Message:"></textarea>
-						</div>
-
-						<input type="submit" class="btn submitMessage" name="submit-message" value="Submit Message">
-					</form>
-				</div>
-				<div class="col-md-4 col-xs-12 text-center ">
 					<h4 class="contact-box-title  ">Customer Center</h4>
 					<div class="contact-box">
 						<img src="assets/images/utilisateur.avif" width="80px" height="80px" alt="contact-img">
@@ -307,219 +278,70 @@
 			</div>
 		</section>
 		<!-- Contact end -->
-		<a href="#" class="scrollup">ScrollUp</a>
-		<!-- Footer start -->
 
-		<!-- Footer end -->
-		
-<style>
-body{
-	color: grey;
-}
-.greyBar{
 
- 	background: rgb(72,74,74);
-	background: linear-gradient(0deg, rgba(72,74,74,1) 57%, rgba(58,60,60,1) 100%); 
-}
-.lightGreyBar{
-	background-color: rgba(204,204,204,255);
-	padding: 50px;
-}
-.title{
-	padding: 40px;
-	
-}
-.cardCustom{
-	padding: 40px;
-}
-.plusCustom{
-	color:rgba(198,19,52,255);
-}
-.service-title{
-	font-weight: bold;
-}
-.service-content{
-	font-size:17px;
-}
-.redBand{
-	background-color: rgba(198,19,52,255);
-	padding: 50px;
-}
-.subtitle{
-	color: white;
-	align-item: center;
-}
-.flex-container {
-  display: flex;
-  justify-content: center; /* Alignement horizontal */
-  align-items: center; /* Alignement vertical */
-}
-.list-group{
-	cursor: pointer;
-}
-.vehiculeUl{
-	background-color:white;
-	border-radius: 5px;
-	border: solid 1px;
-}
-.vehicule-liste{
-	margin: 20px;
-	padding: 5px;
-	
-}
-.spaceBetween{
-	margin-top:70px;
-	margin-bottom:70px;
-}
-.video-responsive { 
-overflow:hidden; 
-padding-bottom:56.25%; 
-position:relative; 
-height:0;
-}
-.video-responsive iframe {
-left:0; 
-top:0; 
-height:100%;
-width:100%;
-position:absolute;
-}
-.titleInfoTour{
-	display:flex;
-	justify-content: center;
-	margin:40px;
-}
-.imgSpace{
-	padding:40px;
-}
-.titleContact{
-	padding:60px;
-}
-.titleContact{
-	font-weight: bold;
-	font-size: 40px;
-}
-.highlight{
-	color: red;
-}
-.address{
-	font-weight: bold;
-	font-size: 18px;
-}
-.text-field{
-	background-color: rgba(204,204,204,255);
-}
-.form-group{
-	padding:10px;
-}
-.message{
-	height: 300px;
-}
-.submitMessage{
-	background-color:rgba(198,19,52,255);
-	color: white;
-	font-weight: bold;
-	font-size: 25px;
-}
-.btn:hover{
-	background-color: rgba(204,204,204,255);
-}
-input:hover{
-	background-color: white;
-}
-.contactBoxName{
-	font-weight: bold;
-	font-size: 20px;
-}
-.clearfix{
-	background-color:rgba(198,19,52,255);
-	display: flex;
-	height: 5px;
-}
-</style>
+</main>	
+
 
 	
 <script>
 
-			//liste des véhicules 
-
-	// info des vehicules dynamique
-  document.querySelectorAll('#vehicle-list .list-group-item').forEach(item => {
-    item.addEventListener('click', event => {
-      // Afficher l'image du véhicule
-      const vehicleImage = document.getElementById('vehicle-image');
-      vehicleImage.src = event.target.dataset.vehicleImage;
-      vehicleImage.style.display = 'block';
-
-      // Afficher les informations du véhicule
-      const vehicleInfo = document.getElementById('vehicle-info');
-      vehicleInfo.innerHTML = event.target.dataset.vehicleInfo;
-      vehicleInfo.style.display = 'block';
-    });
-  });
-		
-		
-
-		//Rating pagination
-
-
-		
-    let ratings = [{% for rating in rating %}{
-        note: {{ rating.note }},
-        commentary: "{{ rating.commentary }}"
-    }, {% endfor %}];
-
-    let currentPage = 0;
-    const reviewsPerPage = 5;
-
-    function displayReviews() {
-        let start = currentPage * reviewsPerPage;
-        let end = start + reviewsPerPage;
-
-        let reviewsHtml = `
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Note</th>
-                    <th scope="col">Commentary</th>
-                </tr>
-            </thead>
-            <tbody>
-        `;
-
-        for (let i = start; i < end && i < ratings.length; i++) {
-            let rating = ratings[i];
-            reviewsHtml += `<tr>
-                <td>`;
-            for (let j = 1; j <= 5; j++) {
-                if (j <= rating.note) {
-                    reviewsHtml += '<span class="bi bi-star-fill text-warning"></span>';
-                } else {
-                    reviewsHtml += '<span class="bi bi-star"></span>';
+let ratings = [{% for rating in rating %}{
+            note: {{ rating.note }},
+            commentary: "{{ rating.commentary }}"
+        }, {% endfor %}];
+    
+        let currentPage = 0;
+        const reviewsPerPage = 5;
+    
+        function displayReviews() {
+            let start = currentPage * reviewsPerPage;
+            let end = start + reviewsPerPage;
+    
+            let reviewsHtml = `
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Note</th>
+                        <th scope="col">Commentary</th>
+                    </tr>
+                </thead>
+                <tbody>
+            `;
+    
+            for (let i = start; i < end && i < ratings.length; i++) {
+                let rating = ratings[i];
+                reviewsHtml += `<tr>
+                    <td>`;
+                for (let j = 1; j <= 5; j++) {
+                    if (j <= rating.note) {
+                        reviewsHtml += '<span class="bi bi-star-fill text-warning"></span>';
+                    } else {
+                        reviewsHtml += '<span class="bi bi-star"></span>';
+                    }
                 }
+                reviewsHtml += `</td>
+                    <td>${rating.commentary}</td>
+                </tr>`;
             }
-            reviewsHtml += `</td>
-                <td>${rating.commentary}</td>
-            </tr>`;
+    
+            reviewsHtml += `</tbody>
+            </table>`;
+            document.getElementById("reviews").innerHTML = reviewsHtml;
+            updatePaginationButtons();
         }
-
-        reviewsHtml += `</tbody>
-        </table>`;
-        document.getElementById("reviews").innerHTML = reviewsHtml;
-        updatePaginationButtons();
-    }
-
-    function updatePaginationButtons() {
-        document.getElementById("previous").disabled = currentPage === 0;
-        document.getElementById("next").disabled = (currentPage + 1) * reviewsPerPage >= ratings.length;
-    }
-
-    function changePage(direction) {
-        currentPage += direction;
+    
+        function updatePaginationButtons() {
+            document.getElementById("previous").disabled = currentPage === 0;
+            document.getElementById("next").disabled = (currentPage + 1) * reviewsPerPage >= ratings.length;
+        }
+    
+        function changePage(direction) {
+            currentPage += direction;
+            displayReviews();
+        }
+    
         displayReviews();
-    }
-
-    displayReviews();
 </script>
 
 

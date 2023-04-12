@@ -27,4 +27,12 @@ class MainController extends AbstractController
           
         ]);
     }
+    #[Route('/inscription_passager', name:'app_inscri')]
+    public function inscri(): Response
+    {
+      
+        return $this->render('main/inscrire2.html.twig', [
+          
+        ]);
+}
 }

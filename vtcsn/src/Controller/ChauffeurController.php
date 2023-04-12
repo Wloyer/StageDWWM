@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Driver;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Repository\DriverRepository;
+use App\Repository\RideRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,8 +29,31 @@ class ChauffeurController extends AbstractController
     
 
    
+    #[Route('/cours', name: 'newCours')]
+    public function newCours(): Response
+    {
+        return $this->render('chauffeur/newCours.html.twig', [
+           
+        ]);
+    }
 
-
+    #[Route('/mesCours', name: 'mesCours')]
+    public function mesCours  (Driver $driver, EntityManagerInterface $em, UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findBy([
+            'roles' => 'ROLE_ADMIN'
+        ]);
+       $users= $user= $this->getUser();// Récupérer l'utilisateur connecté
+         $rides = $em
+           ->getRepository(Ride::class)
+            ->findTrajetsByUser($user);
+        
+        
+        return $this->render('chauffeur/mesCours.html.twig', ['rides'=>$rides,
+        'user'=>$driver,
+           
+        ]);
+    }
 
    
     #[Route('/{id}', name: 'profil', methods :['GET'])]
@@ -78,26 +102,6 @@ class ChauffeurController extends AbstractController
 
 
 
-    #[Route('/cours', name: 'newCours')]
-    public function newCours(): Response
-    {
-        return $this->render('chauffeur/newCours.html.twig', [
-           
-        ]);
-    }
-    #[Route('/mesCours', name: 'mesCours')]
-    public function mesCours  (): Response
-    {
-        return $this->render('chauffeur/mesCours.html.twig', [
-           
-        ]);
-    }
-    #[Route('/deveniPassger', name: 'deveniPassger')]
-    public function devenirPassger (): Response
-    {
-        return $this->render('passager/deveniPassger.html.twig', [
-           
-        ]);
-    }
+   
   
 }

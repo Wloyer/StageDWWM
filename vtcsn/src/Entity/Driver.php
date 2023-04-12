@@ -32,9 +32,7 @@ class Driver
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'driver', targetEntity: Rating::class)]
-    private Collection $ratings;
-
+   
     #[ORM\ManyToMany(targetEntity: Ride::class, mappedBy: 'driver')]
     private Collection $rides;
 
@@ -42,7 +40,7 @@ class Driver
   
     public function __construct()
     {
-        $this->ratings = new ArrayCollection();
+        
         $this->rides = new ArrayCollection();
     }
 
@@ -106,35 +104,7 @@ class Driver
         return $this;
     }
 
-    /**
-     * @return Collection<int, Rating>
-     */
-    public function getRatings(): Collection
-    {
-        return $this->ratings;
-    }
-
-    public function addRating(Rating $rating): self
-    {
-        if (!$this->ratings->contains($rating)) {
-            $this->ratings->add($rating);
-            $rating->setDriver($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRating(Rating $rating): self
-    {
-        if ($this->ratings->removeElement($rating)) {
-            // set the owning side to null (unless already changed)
-            if ($rating->getDriver() === $this) {
-                $rating->setDriver(null);
-            }
-        }
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection<int, Ride>

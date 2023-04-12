@@ -47,11 +47,14 @@ class Ride
     #[ORM\JoinColumn(nullable: false)]
     private ?Location $location = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'rides')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'rides' )]
     private Collection $user;
 
     #[ORM\ManyToMany(targetEntity: Driver::class, inversedBy: 'rides')]
     private Collection $driver;
+
+    #[ORM\OneToMany(mappedBy: 'raide', targetEntity: Rating::class, orphanRemoval: true)]
+    private Collection $ratings;
 
    
 
@@ -65,6 +68,7 @@ class Ride
         $this->created_at = new \DateTimeImmutable();
         $this->user = new ArrayCollection();
         $this->driver = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
       
     }
 
@@ -234,6 +238,36 @@ class Ride
     public function removeDriver(driver $driver): self
     {
         $this->driver->removeElement($driver);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rating>
+     */
+    public function getRatings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function addRating(Rating $rating): self
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings->add($rating);
+            $rating->setRaide($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): self
+    {
+        if ($this->ratings->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getRaide() === $this) {
+                $rating->setRaide(null);
+            }
+        }
 
         return $this;
     }

@@ -47,7 +47,9 @@ class PassagerController extends AbstractController
          //On vérifie si le formulaire est soumis ET valide
         if($rideNewForm->isSubmitted() && $rideNewForm->isValid() ){
 
-            
+            //On récupére user
+            $user=$this->getUser();
+            $ride->addUser($user);
         
              // On stocke
              $em->persist($ride);
@@ -82,7 +84,8 @@ class PassagerController extends AbstractController
          //On vérifie si le formulaire est soumis ET valide
         if($rideForm->isSubmitted() && $rideForm->isValid() ){
 
-            
+            $user=$this->getUser();
+            $ride->addUser($user);
         
              // On stocke
              $em->persist($ride);
@@ -103,23 +106,24 @@ class PassagerController extends AbstractController
         ]);
     }
     #[Route('/{id}/mesCommands', name: 'mesCommands', methods :['GET'])]
-    public function mesCommands  (EntityManagerInterface $em,  RideRepository $rideRepository ): Response
+    public function mesCommands  ( EntityManagerInterface $em,  RideRepository $rideRepository ): Response
     {
 
-       $user=$this->getUser();// Récupérer l'utilisateur connecté
+       $user=$this->getUser() ;// Récupérer l'utilisateur connecté
+      
 
-        // $rides = $em
-        //     ->getRepository(Ride::class)
-        //     ->findTrajetsByUser($user);
+         //   dump($user);
         
-        // $rides = $em->getRepository(Ride::class)->findBy(['user' => $user]);
-          $rides=$rideRepository->findBy(['user'=>$user]);
-        
+         $rides = $em
+         ->getRepository(Ride::class)
+           ->findTrajetsByUser($user);
+
+       
         return $this->render('passager/mesCommands.html.twig', ['rides'=>$rides,
-        'user'=>$user
-       
+        'user'=>$user,
+        
         ]);
-       
+
     }
     
     #[Route('/{id}/suivreCommande/{id2}', name: 'suivre')]

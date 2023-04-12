@@ -91,14 +91,6 @@ class AppFixtures extends Fixture
             $user->setCity($faker->city);
             $user->setPassword($this->passwordEncoder->hashPassword($user,'secret'));
        
-            
-
-            $rating = new Rating();
-            $rating->setNote($faker->numberBetween(0 ,5));
-            $rating->setCommentary($faker->text(50));
-            $rating->setDriver($driver);
-            $rating->setUser($user);
-            
 
             $location =new Location();
             $location->setCity($faker->city);
@@ -117,7 +109,15 @@ class AppFixtures extends Fixture
             $ride->setStopTime($faker->dateTime);
             $ride->setTimeDestination($faker->dateTime);
             $ride->setLocation($location);
+            $ride->addUser($user);
+            $ride->addDriver($driver);
            
+            $rating = new Rating();
+            $rating->setNote($faker->numberBetween(0 ,5));
+            $rating->setCommentary($faker->text(50));
+            $rating->setRaide($ride);
+          
+            
             
             
          }

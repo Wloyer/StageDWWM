@@ -4,12 +4,11 @@
 	Ajouter Votre Voiture
 {% endblock %}
 {% block body %}
-	<section class="container" style="text-align:start;">
-		<div class="row">
+	<div class="container p-4 mt-4  ">
+		<div class="row   justify-content-center   ">
+			<div class="col-sm-12 col-md-6 register   ">
 
-			<div class="col-md-5">
-
-				<h1>Voiture</h1>
+				<h1 style="text-align:center;">Car</h1>
 
 				{{ form_start(vehiculeForm) }}
 				<div class="mb-3">
@@ -22,7 +21,10 @@
 					{{ form_row(vehiculeForm.numberDoor) }}
 					{{ form_row(vehiculeForm.licensePlate) }}
 					{{ form_row(vehiculeForm.image ) }}
-					<button type="submit" class="btn btn-primary btn-lg my-3">Enregistrer</button>
+
+
+					<button type="submit" class="btn btn-primary btn-ld my-3" style="width:100%;	border-radius: 15px;">Enregistrer</button>
+
 					{{ form_end(vehiculeForm) }}
 
 
@@ -30,7 +32,9 @@
 
 
 			</div>
+
+
 		</div>
-	</section>
+	</div>
 
 {% endblock %}

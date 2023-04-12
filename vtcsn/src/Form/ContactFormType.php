@@ -21,20 +21,20 @@ class ContactFormType extends AbstractType
         $builder
             ->add('surName', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control text-field',
 
                 ],
-                'label' => 'Nom / Prénom',
+                'label' => 'Lastname / Surname',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ]
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control text-field',
 
                 ],
-                'label' => 'Adresse email',
+                'label' => 'Email address',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -42,10 +42,10 @@ class ContactFormType extends AbstractType
             ])
             ->add('subject', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control text-field',
 
                 ],
-                'label' => 'Sujet',
+                'label' => 'object of the message',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -53,9 +53,9 @@ class ContactFormType extends AbstractType
             ])
             ->add('message', TextareaType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control text-field ',
                 ],
-                'label' => 'Description',
+                'label' => 'Message',
                 'label_attr' => [
                     'class' => 'form-label mt-4'
                 ],
@@ -63,9 +63,9 @@ class ContactFormType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary mt-4'
+                    'class' => 'btn submitMessage mt-4 spaceBetween'
                 ],
-                'label' => 'Soumettre ma demande'
+                'label' => 'Submit my request'
             ]);
             
        

@@ -1,47 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription
+{% block title %}registration
 {% endblock %}
 
 {% block body %}
 
-	<section class="container" style="text-align:start;">
-		<div class="row">
+				<div class="lightGreyBar spaceBetween content">
+				<h1 class="text-center service-title spaceBetween">registration
+				</h1>
+				<div class="clearfix"></div>
+            	</div>
 
-			<div class="col">
 
-				<h1>Inscription</h1>
-
+	<section class="container " style="text-align:start;">
+		
 				{{ form_start(registrationForm) }}
-				<div class="mb-3">
-					<legend>Mon identité</legend>
-					{{ form_row(registrationForm.genre) }}
-					{{ form_row(registrationForm.name) }}
-					{{ form_row(registrationForm.surname) }}
-					{{ form_row(registrationForm.email) }}
-					{{ form_row(registrationForm.phoneNumber) }}
+			<div class="row">	
+				<div class="col-md-6">
+					<legend class="registrationForm spaceBetween" >Mon identité</legend>
+					
+					{{ form_row(registrationForm.genre, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
 
+					{{ form_row(registrationForm.name , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.surname , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.email , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.phoneNumber , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}			
 				</div>
-				<div class="mb-3">
-					<legend>Mes coordonnées</legend>
-					{{ form_row(registrationForm.address) }}
-					{{ form_row(registrationForm.zipcode) }}
-					{{ form_row(registrationForm.city) }}
+				<div class="col-md-6">
+					<legend class="registrationForm spaceBetween">My contact details</legend>
+					{{ form_row(registrationForm.address , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.zipcode , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.city , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
 
 
-					{{ form_row(registrationForm.plainPassword ) }}
-					{{ form_row(registrationForm.RGBDConsent) }}
-
-					<button type="submit" class="btn btn-primary btn-lg my-3">M'inscrire</button>
-					<a href="{{path('app_login')}}" class="btn btn-secondary">Me connecter</a>
-					{{ form_end(registrationForm) }}
-
-
-				</div>
-
-
-			</div>
+					{{ form_row(registrationForm.plainPassword , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.RGBDConsent , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+				</div>		
 		</div>
+		<button type="submit" class="btn submitMessage btn-lg my-3">Register</button>
+					<a href="{{path('app_login')}}" class="btn submitMessage">Log in</a>
+					{{ form_end(registrationForm) }}
 	</section>
 
 {% endblock %}

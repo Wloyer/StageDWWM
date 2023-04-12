@@ -7,32 +7,24 @@
 {% block body %}
 
 
-	<main class="container">
-		<div class="row">
-			<h1>Commandes de{{ user.surName }}</h1>
+	<div class="container-fluid profil">
 
-			{% for ride in  rides %}
+		<div class="row justify-content-center">
+			<fieldset class=" col-ms-12 col-md-5 col-lg-3  register " class=" maClasse" style=" overflow-y:scroll">
+				<h5>Commandes de{{app. user.surName }}</h5>
 
+				{% for ride in  rides %}
+					<div class=" cardh-100  rating">
+						<h6 class="card-title">Trajet faie le :{{ride.createdAt |date('d-m-y h:m')}}
+						</h6>
+						<p class="card-text">De :
+							{{ride.rendezVous}}</p>
+						<p class="card-text">Ver :
+							{{ride.destination}}</p>
 
-				<fieldset class=" col-ms-12 col-md-5 col-lg-3 ">
-
-					<div class="card h-100">
-
-						<div class="card-body">
-							<h5 class="card-title">Trajet faie le :{{ride.createdAt |date('d-m-y')}}
-							</h5>
-							<p class="card-text">De :
-								{{ride.rendezVous}}</p>
-							<p class="card-text">Ver :
-								{{ride.destination}}</p>
-						</div>
 					</div>
+				{% endfor %}
+			</fieldset>
 
-				</fieldset>
-
-
-			{% endfor %}
-
-
-		</main>
+		</div>
 	{% endblock %}
