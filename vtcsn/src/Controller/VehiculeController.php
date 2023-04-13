@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\DriverRepository;
 use App\Entity\Driver;
 use App\Entity\User;
 use App\Entity\Vehicule;
@@ -22,11 +23,22 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class VehiculeController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(VehiculeRepository $VehiculeRepository): Response
+    public function index(VehiculeRepository $vehiculeRepository): Response
     {
-    
+        $user = $this->getUser(); // Récupère l'utilisateur connecté
+
+        if (!$this->isGranted('ROLE_DRIVER')) {
+            // Si l'utilisateur n'a pas le rôle "ROLE_DRIVER", retournez une réponse appropriée
+            return $this->render('vehicule/index.html.twig', [
+                'vehicules' => [],
+                'error' => "Vous n'êtes pas un chauffeur.",
+            ]);
+        }
+
+        $vehicules = $vehiculeRepository->findByUser($user); // Récupère les véhicules de l'utilisateur connecté
+
         return $this->render('vehicule/index.html.twig', [
-            'vehicule' =>$VehiculeRepository->findBy([]),
+            'vehicules' => $vehicules,
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\Vehicule;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,6 +38,20 @@ class VehiculeRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * @return Vehicule[]
+     */
+    public function findByUser(User $user): array
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->join('v.driver', 'd')
+            ->where('d.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery();
+
+        return $qb->execute();
     }
 
 //    /**

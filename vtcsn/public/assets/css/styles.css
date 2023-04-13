@@ -54,6 +54,14 @@ html,body{
 	padding: 40px;
 	
 }
+.clearfixTitle{
+       background-color:rgba(198,19,52,255);
+	display: flex;
+	height: 5px;
+       width: 200px;
+       margin: auto ;
+       
+}
 .carrouselCustom{
        margin-top: 100px; 
        margin-bottom: 100px;
@@ -214,6 +222,55 @@ input:hover{
 .profil{
        margin-top:300px;
        margin-bottom:300px;
+}
+
+/*-------------------------- car table-------------------------- */
+
+table{
+       border-collapse: collapse;
+       border: 2px solid black;
+       letter-spacing: 1px;
+       margin: 0 auto;
+       min-height:auto;
+       min-width: auto;
+}
+
+tbody {
+       background-color:rgb(212, 211, 211);
+       color: black;
+   }
+thead,
+tfoot {
+       background-color: rgba(198,19,52,255);
+       color: #fff;
+   }
+td,
+th {
+       border: 1px solid rgb(10, 10, 10);
+       padding: 5px 10px;
+   }
+   
+td {
+       text-align: center;
+   }
+.btnCustom{
+       margin: 0 auto;
+}
+/* -----------------------------review------------------------------- */
+
+
+.tableReview{
+       width: 500px;
+} @media (max-width: 991.98px) {
+       .tableReview {
+         width: auto; 
+       }
+}
+
+
+.btnCustom{
+      margin: 10px;
+      width: auto;
 }
 
 /* Footer

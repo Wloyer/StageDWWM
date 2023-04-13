@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
+use App\Entity\Vehicule;
 use App\Entity\Driver;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,6 +39,30 @@ class DriverRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findByUser(User $user): ?Driver
+    {
+        return $this->createQueryBuilder('d')
+            ->where('d.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
+    /**
+     * @return Driver[] Returns an array of Driver objects
+     */
+
+    public function findVehiclesByDriver(Driver $driver): array
+    {
+        $qb = $this->createQueryBuilder('d')
+            ->innerJoin('d.vehicules', 'v')
+            ->where('d.id = :driver')
+            ->setParameter('driver', $driver)
+            ->getQuery();
+
+        return $qb->execute();
     }
 
 //    /**

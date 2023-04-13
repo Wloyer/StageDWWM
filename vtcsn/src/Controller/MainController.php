@@ -7,16 +7,23 @@ use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class MainController extends AbstractController
 {
     #[Route('/', name: 'app_main')]
-    public function index(VehiculeRepository $vehiculeRepository, RatingRepository $ratingRepository): Response
+    public function index(VehiculeRepository $vehiculeRepository, RatingRepository $ratingRepository, KernelInterface $kernel): Response
     {
+         // Charger le fichier JSON
+         $projectDir = $kernel->getProjectDir();
+        $jsonFile = $projectDir . '/src/Json/vehicule.json';
+        $jsonData = json_decode(file_get_contents($jsonFile), true);;
+
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
-            'vehicule' => $vehiculeRepository->findby([]),
-            'rating' => $ratingRepository->findby([])
+            // 'vehicule' => $vehiculeRepository->findby([]),
+            'rating' => $ratingRepository->findby([]),
+            'data' => $jsonData, // Ajoutez les données JSON ici
         ]);
     }
     #[Route('/inscription_chauffeur', name:'app_inscription')]

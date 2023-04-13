@@ -107,29 +107,29 @@
 					<div class="col-md-4">
 						<ul class="list-group" id="vehicle-list">
 						
-							{% for vehicule in vehicule %}
+							{% for vehicule in data %}
 							
-								<li class="list-group-item " data-vehicle-id="{{ vehicule.id }}" data-vehicle-image="{{ vehicule.image }} " data-vehicle-info="
+								 <li class="list-group-item " data-vehicle-id="{{ vehicule.type }}" data-vehicle-image="/assets/images/{{ vehicule.image }}"data-vehicle-info=" 
 								
 								<ul class='vehiculeUl list-group'>
 									<li class=' list-group-item'>
-										{{ vehicule.brand }}
+										{{ vehicule.type }}
+									</li>
+									<li class='list-group-item'>
+										{{ vehicule.nombreDePlaces }}
 									</li>
 									<li class='list-group-item'>
 										{{ vehicule.energie }}
 									</li>
 									<li class='list-group-item'>
-										{{ vehicule.color }}
+										{{ vehicule.anneeDeConstruction }}
 									</li>
 									<li class='list-group-item'>
-										{{ vehicule.model}}
-									</li>
-									<li class='list-group-item'>
-										{{ vehicule.model}}
+										{{ vehicule.description }}
 									</li>
 								</ul>
 								">
-										{{ vehicule.model }}
+										 {{ vehicule.type }} 
 								</li>
 
 							{% endfor %}
@@ -156,8 +156,7 @@
 
 
 		<div class="container col-md-3">
-			<h1 class="title text-center">review</h1>
-			<div class="clearfix"></div>
+			<h1 class="title text-center">review<div class="clearfix"></div> </h1>
 				<div id="reviews">
 				<!-- Les reviews seront insérées ici par JavaScript -->
 				</div>
