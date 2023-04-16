@@ -18,9 +18,6 @@
 					<li>
 						<a class="dropdown-item" href="{{path('app_login')}}">Administration</a>
 					</li>
-					<li>
-						<a class="dropdown-item" href="#">Setting</a>
-					</li>
 				</ul>
 				</li>
 	{% endif %}
@@ -29,14 +26,14 @@
 					<a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">My account</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a class="dropdown-item" href="{{path('chauffeur_index')}}">New Ride</a>
+						<a class="dropdown-item" href="{{path('chauffeur_index')}}">Menue</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="{{path('chauffeur_profil',{'id': app.user.id})}}">Profile</a>
 					</li>
-					<li>
+					{# <li>
 						<a class="dropdown-item" href="{{path('chauffeur_mesCours')}}">My Ride</a>
-					</li>
+					</li> #}
 					<li>
 						<a class="dropdown-item" href="{{path('vehicule_index')}}">My car</a>
 					</li>
@@ -45,15 +42,6 @@
 					</li>
 					<li>
 						<a class="dropdown-item" href="{{path('contact.index')}}">Contact us</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="">FQ</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="">My banking information</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="">My Documents</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="{{path('driver_modePassager')}}">Switch to passenger mode</a>
@@ -68,25 +56,19 @@
 					<a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">My account</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a class="dropdown-item" href="{{path('passager_index')}}">New Ride</a>
+								<a class="dropdown-item" href="{{path('passager_index')}}">Menue</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="{{path('chauffeur_profil',{'id': app.user.id})}}">Profile</a>
 							</li>
-							<li>
+							{# <li>
 								<a class="dropdown-item" href="{{path('passager_mesCommands',{'id': app.user.id})}}">My Ride</a>
-							</li>
+							</li> #}
 							<li>
 								<a class="dropdown-item" href="{{path('rating_passager')}}">My reviews</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="{{path('contact.index')}}">Contact us</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="">FQ</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="">My banking information</a>
 							</li>
 	{% if app.user.drivers| filter (a => a.id )|length > 0 %}
 							<li>
@@ -105,10 +87,10 @@
 	{% endif %}
 	{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="">Services</a>
+						<a class="nav-link" href="#services">Services</a>
 					</li>
 					<li class="nav-item">
-						 <a class="nav-link" href="{# {{path('app_inscri')}}#} ">Passenger</a> 
+						 <a class="nav-link" href=" {{path('app_inscri')}} ">Passenger</a> 
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{path('app_inscription')}}">Driver</a>

@@ -1,21 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Suivre Ma Command
+{% block title %}Follow my order
 {% endblock %}
 
 {% block body %}
+	<div class="container ">
+	<div id="map" style="height: 80vh; width: 100%;"></div>
 
-	<div class="container-fluid profil">
 
-		<div class="row justify-content-center">
+  <div>
+    <label for="startAddress">Adresse de départ :</label>
+    <input type="text" id="startAddress" list="startAddressList">
+    <datalist id="startAddressList"></datalist>
+  </div>
+  <div>
+    <label for="endAddress">Adresse d'arrivée :</label>
+    <input type="text" id="endAddress" list="endAddressList">
+    <datalist id="endAddressList"></datalist>
+  </div>
+  <button onclick="getRouteFromAddresses()">Calculer l'itinéraire</button>
+  </div>
+  </div>
 
-			<fieldset class=" col-ms-12 col-md-5 col-lg-3  register" class=" maClasse" style=" overflow-y:scroll" ;>
-				<h5>Choisir votre chauffeur</h5>
 
-				<div class="cardh-100   rating  "></div>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  #map-container {
+    height: 80%;
+    width: 100%;
+    position: relative;
+  }
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+</style>
 
-			</fieldset>
-
-		</div>
-	</div>
 {% endblock %}

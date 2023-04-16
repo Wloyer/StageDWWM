@@ -1,31 +1,38 @@
 {% extends 'base.html.twig' %}
-{% block title %}Profil
+{% block title %}Ride in Style, Arrive with a Smile
 {% endblock %}
 
 {% block body %}
-	<h2>Bienvenue Dans L'éspace  passager</h2>
-	<div class="container-fluid profil">
+	<div class="container profil">
 
 
-		<div class="row justify-content-center">
+		<div class="row ">
 
-			<fieldset class="col-ms-12 col-md-5 col-lg-3 ">
+			<div class="col-md-12 text-center ">
+			<h1 class="titleContact">Ride in Style, Arrive with a Smile <div class="clearfixTitle"></div></h1>
+			<h2>Empower Your Drive, Elevate Your Life <div class="clearfixSubTitle"></div></h2>
 				<div class="cardh-100">
-
-					<strong class="strong">PASSAGERS, NE VOUS PRIVEZ PLUS D'UN CHAUFFEUR PRIVÉ</strong>
-					<br>
-					<br>
-					<p>Vtcsn vous accompagne pour vos déplacements à à toutes les villes du sénégal et vous propose un large choix de gammes de véhicules.</p>
-					<br>
-					<a class=" btn btn-warning  btn-ld my-3" href=" {{path('app_login')}}" style=" border-radius: 15px;width:100% ">connéctez-vous pour demander un trajet</a>
-					<a class=" btn btn-danger  btn-ld my-3" href=" {{path('app_register')}}" style=" border-radius: 15px;width:100% ">inscririvez-vous pour demander un trajet</a>
-
-
+					
+				<img src="\assets\images\vtcsn-placeholder-2.avif" alt="Driver"  class="imgPlaceholder">
+					
+					<p>Choose VTCsn for your next ride and discover the advantages of a comfortable and convenient travel experience. As a VTCsn passenger, you'll enjoy quick and easy access to reliable transportation, available at your fingertips through our user-friendly app. No more waiting in long taxi lines or dealing with unpredictable public transportation – VTCsn connects you with a network of professional drivers who prioritize your safety and satisfaction.
+					Our competitive pricing and transparent fare structure ensure you always get the best value for your money. Plus, with our range of vehicle options, you can tailor your ride to match your preferences, whether you desire a luxury sedan for a special occasion or an eco-friendly car for your daily commute.
+					To enhance your journey, VTCsn is dedicated to ongoing app improvements and responsive customer support, making sure your ride is as smooth as possible from start to finish. Experience the difference and travel in style with VTCsn – ride with us and arrive with a smile!</p>
+					<div class="col-md-3">
+					<a class=" btn submitMessage  btn-ld my-3" href=" {{path('app_register')}}" style=" border-radius: 15px;width:100% ">Register </a>
+					<a class=" btn submitMessage  btn-ld my-3" href=" {{path('app_login')}}" style=" border-radius: 15px;width:100% ">Login</a>
 				</div>
-			</fieldset>
+				</div>
+			</div>
 
 
 		</div>
 
 	</div>
+
+
+
+
+
+	
 {% endblock %}

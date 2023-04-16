@@ -1,46 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier Chauffeur
+{% block title %}modify
 {% endblock %}
 
 {% block body %}
 
-	<section class="container" style="text-align:start;">
+	<section class="container  content" >
 		<div class="row">
-
-			<div class="col">
-
-				<h1>Modifier Chauffeur</h1>
-
+			<div class="text-center content">
+				<h1 class="titleContact">Edit profile</h1>
+				</div>
 				{{ form_start(registrationForm) }}
 				<div class="mb-3">
-					<legend>Mon identité</legend>
-					{{ form_row(registrationForm.genre) }}
-					{{ form_row(registrationForm.name) }}
-					{{ form_row(registrationForm.surname) }}
-					{{ form_row(registrationForm.email) }}
-					{{ form_row(registrationForm.phoneNumber) }}
+					<legend class="title">My information</legend>
+					{{ form_row(registrationForm.genre, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.name, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.surname, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.email, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.phoneNumber, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
 
 				</div>
 				<div class="mb-3">
-					<legend>Mes coordonnées</legend>
-					{{ form_row(registrationForm.address) }}
-					{{ form_row(registrationForm.zipcode) }}
-					{{ form_row(registrationForm.city) }}
+					<legend class="title">My contact details</legend>
+					{{ form_row(registrationForm.address, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.zipcode, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.city, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
 
 
-					{{ form_row(registrationForm.plainPassword ) }}
-					{{ form_row(registrationForm.RGBDConsent) }}
+					{{ form_row(registrationForm.plainPassword , {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
+					{{ form_row(registrationForm.RGBDConsent, {
+						'attr': {'class': 'text-field'},
+						'label_attr': {'class': 'custom-label'}}) }}
 
-					<button type="submit" class="btn btn-primary btn-lg my-3">Mettre ajoure</button>
-					<a href="{{path('app_main')}}" class="btn btn-warning btn-lg my-3">Retour à l'accueil</a>
+					<button type="submit" class="btn submitMessage btn-lg my-3 ">Update</button>
+					<a href="{{path('app_main')}}" class="btn submitMessage btn-lg my-3">Get back to the main page</a>
 					{{ form_end(registrationForm) }}
 
 
 				</div>
 
 
-			</div>
+			
 		</div>
 	</section>
 

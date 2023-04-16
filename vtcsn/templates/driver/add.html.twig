@@ -6,33 +6,30 @@
 
 {% block body %}
 
-	<div class="container p-4 mt-4  ">
-		<div class="row   justify-content-center   ">
+	<div class="container  profil ">
+		<div class="row   justify-content-center content text-center ">
+		
 			<div class="col-sm-12 col-md-6 register   ">
 
-				<h1 style="text-align:center;">Votre pérmis de conduit</h1>
+			<h1 class="titleContact">Your driver license</h1>	
 				<br>
 				{{ form_start(driverForm) }}
-				<div class="mb-3">
+				
 					{{ form_row(driverForm.license) }}
 
 
-					{{ form_row(driverForm.enregistrer) }}
+					{{ form_row(driverForm.enregistrer, {
+						'attr': {'class': 'submitMessage'}}) }} 
 
 
 					{{ form_end(driverForm) }}
 
-					<br>
+					
 				</div>
 
-				<br>
+				
 			</div>
 
 		</div>
-	</div>
-	<br>
-	<div>
-		<br>
-		<br>
-	</div>
+	
 {% endblock %}
